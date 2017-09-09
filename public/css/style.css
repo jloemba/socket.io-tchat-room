@@ -1,0 +1,216 @@
+@font-face {font-family: brelaregular; src: url('brelaregular.otf');font-style: normal;}
+
+body{
+font-family: "brelaregular";
+margin-top:20px;
+background-color: rgb(252,252,252);
+color: #202121;
+font-size: 19px;
+}
+
+/*.chat-widget{
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.3);
+} */
+
+.panel-default > .panel-heading {
+    color: #333;
+    background-color: rgb(252,252,252);
+    border-color: rgb(252,252,252);
+}
+
+
+.panel-body{
+  height: 23em;
+  background-color: rgb(252,252,252);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 29px;
+}
+
+/*   -----   LE SCROLLBAR   -----  */
+
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-button {
+  width: 27px;
+  height: 27px;
+}
+::-webkit-scrollbar-thumb {
+  background: #bdc1c4;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #bdc1c4;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: transparent;
+}
+::-webkit-scrollbar-track:active {
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+/*   ----   ---- */
+
+/*Chat widget*/
+.chat-widget .message {
+    display:block;
+	margin-bottom:20px;
+
+}
+
+.chat-widget .message .avatar {
+	width:55px;
+	float:left;
+
+}
+
+.chat-widget .message.message-right .avatar {
+	width:55px;
+	float:right;
+}
+
+.chat-widget .avatar img {
+	height:40px;
+	width:40px!important;
+}
+
+.chat-widget .message .message-text-wrapper {
+	display:table-cell;
+	/* width:1%;  */
+}
+
+.chat-widget .message .message-text {
+	padding:15px;
+	border-radius:4px;
+  background-color: rgb(32,33,33);
+  color: rgb(252, 252, 252);
+	border:1px solid #ddd;
+	border:1px solid rgba(221,221,221,0.68);
+	position:relative;
+	width:100%;
+
+}
+
+.chat-widget .message.message-left .message-text{
+      border-radius: 40px 40px 40px 0px;
+}
+
+.chat-widget .message.message-right .message-text {
+  background-color: rgb(166, 172, 175);
+  left: 5%;
+  border-radius: 40px 40px 0px 40px;
+}
+
+.chat-widget .message .message-text img {
+	width:200px;
+	height:150px;
+}
+
+.chat-widget .message .time-stamp {
+	margin-left:55px;
+}
+
+.chat-widget .message.message-right .time-stamp {
+	margin-left:0;
+	margin-right:55px;
+	display:block;
+	text-align:right;
+}
+
+.chat-widget .message .message-text:before,.chat-widget .message .message-text:after {
+	right:100%;
+	top:30px;
+	border:solid transparent;
+	content:" ";
+	height:0;
+	width:0;
+	position:absolute;
+	pointer-events:none;
+}
+
+/*.chat-widget .message .message-text:before {
+	border-color:rgba(0,0,0,0);
+	border-right-color:#ddd;
+	border-width:10px;
+	margin-top:-19px;
+} */
+
+/*.chat-widget .message .message-text:after {
+	border-color:rgba(213,71,28,0);
+	border-right-color:#fff;
+	border-width:9px;
+	margin-top:-18px;
+} */
+
+.chat-widget .message.message-right .message-text:before,.chat-widget .message.message-right .message-text:after {
+	left:30%;
+	top:30px;
+	border:solid transparent;
+	content:" ";
+	height:0;
+	width:0;
+	position:absolute;
+	pointer-events:none;
+}
+
+/*.chat-widget .message.message-right .message-text:before {
+	border-color:rgba(0,0,0,0);
+	border-left-color:#ddd;
+	border-width:10px;
+	margin-top:-19px;
+}
+
+.chat-widget .message.message-right .message-text:after {
+	border-left-color:#fbfbfb;
+	border-width:9px;
+	margin-top:-18px;
+}*/
+
+.chat-widget .panel-footer {
+	border:none;
+	background:transparent;
+	margin-top:0px;
+}
+
+.chat-widget .panel-footer .avatar {
+	width:55px;
+	float:left;
+	margin-top:-2px;
+}
+
+
+/* --------------- LES CHAMPS DE SAISIES  ---------------  */
+
+input.input-msg{
+  font-size: 18px;
+  height: 2.5em;
+}
+
+/*    -----------     LE BOUTON    -----------      */
+button.send{
+  height: 3.2em;
+}
+
+@media (max-width:767px) {
+	label.margin {
+		margin-top:25px;
+		margin-bottom:15px;
+	}
+}
