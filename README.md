@@ -32,12 +32,19 @@ I use GitHub for versioning.<br>
   <li>September 9 2017 , <b>v.1.5</b>
   <br>
   Make design most ergonomic , responsive and cool.</li>
+  <li>September 11 2017 , <b>v.1.5.1</b>
+  <br>
+  README.md file created.</li>
   <li>To be continued..</li>
 </ul>
 
 ## Authors
 
-Joris Loemba(jorisloemba@gmail.com)
+Joris Loemba
+<ul>
+  <li><b>Mail</b>:jorisloemba@gmail.com</li>
+  <li><b>Portfolio</b>:http://jorisloemba.fr/</li>
+</ul>
 
 ## License
 
