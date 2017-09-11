@@ -42,8 +42,8 @@ I use GitHub for versioning.<br>
 
 Joris Loemba
 <ul>
-  <li><b>Mail</b>:jorisloemba@gmail.com</li>
-  <li><b>Portfolio</b>:http://jorisloemba.fr/</li>
+  <li><b>Mail</b> : jorisloemba@gmail.com</li>
+  <li><b>Portfolio</b> : http://jorisloemba.fr/</li>
 </ul>
 
 ## License
