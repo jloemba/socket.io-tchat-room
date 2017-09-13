@@ -135,15 +135,16 @@ socket.on('chat', function(data){
       //output.innerHTML += '<p><strong style="color:red;">'+ data.clientMessage + ' (' + data.heureMessage +')'+ ' : </strong>' + data.messageBroadcast +'</p>';
 
       feedback.innerHTML = "";
-      output.innerHTML += '<div class="message message-left" ><div class="message-text-wrapper"><div class="message-text">'+data.messageBroadcast+'</div></div></div>';
+      output.innerHTML += '<div class="message message-left" ><div class="message-text-wrapper"><div class="message-text">'+data.messageBroadcast+'</div>'+ data.heureMessage +'</div></div>';
 
     }
-    else{//Sinon , il s'agit de mon propre message
+    else{
+      //Sinon , il s'agit de mon propre message
       //feedback.innerHTML = "";
       //output.innerHTML += '<p><strong>'+ data.clientMessage + ' (' + data.heureMessage +')'+ ' : </strong>' + data.messageBroadcast +'</p>';
 
       feedback.innerHTML = "";
-      output.innerHTML += '<div class="row"><div class="message message-right pull-right" ><div class="message-text-wrapper "><div class="message-text ">'+data.messageBroadcast+'</div></div></div></div>';
+      output.innerHTML += '<div class="row"><div class="message message-right pull-right" ><div class="message-text-wrapper " style="color:rgb(166, 172, 175);"><div class="message-text ">'+data.messageBroadcast+'</div>'+ data.heureMessage +'</div></div></div>';
     }
 
 });
