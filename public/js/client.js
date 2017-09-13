@@ -147,6 +147,13 @@ socket.on('chat', function(data){
       output.innerHTML += '<div class="row"><div class="message message-right pull-right" ><div class="message-text-wrapper " style="color:rgb(166, 172, 175);"><div class="message-text ">'+data.messageBroadcast+'</div>'+ data.heureMessage +'</div></div></div>';
     }
 
+    /*
+        Permet de faire le scroll automatique vers le bas de la  file de la conversation
+        output.scrollTop => Retourne la valeur du scroll par rapport au top de la page en pixel.
+        output.scrollHeight => Retourne la hauteur de l'élément output.
+    */
+    output.scrollTop = output.scrollHeight;
+
 });
 
 
