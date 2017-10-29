@@ -8,8 +8,6 @@
 
 var socket = io.connect('http://localhost:4000');
 
-
-
 /*    --------- REQUÊTES DE DOM ---------
 
   On récupère les 'id' des élèments HTML via des QuerySelector
@@ -42,18 +40,26 @@ var message = document.getElementById('message'),  //CHAMPS DE SAISIE DU MESSAGE
     on envoie au serveur le nom du client(handle.value) et son message(message.value)
 
 */
+
+function sendMessage() {
+  if(message.value !== "") {
+    var key;
+    // le client transmet le message au serveur.
+    socket.emit('chat',{
+      message: message.value,
+      handle: document.title,
+      key: socket.id
+    });
+    message.value = "";
+  }
+}
+
 send.addEventListener('click',function(){
 
   //On récupère donc leurs valeurs(message et nom de l'utilisateur) ci-dessus
   //Pour les envoyer vers le serveur qui les recevra (data) si les champs de
   // saisie ne sont pas vides.
-  if( message.value !== ""){
-    socket.emit('chat',{
-      message: message.value,
-      handle:document.title
-    });
-  }
-
+  sendMessage();
 });
 
 
@@ -65,54 +71,48 @@ send.addEventListener('click',function(){
 
 */
 
-  message.addEventListener('keypress',function(e){
+  // message.onkeydown()
 
-      //Si l'on saisie la touche ENTREE(13) ,
-      if(e.which == 13) {
+  /**
+   * Preparing some namespaces
+   * They will be used to display typing message
+   */
+  var messageValue;
+  var timeout;
 
-        //Si le champs message n'est pas vide ,
-        if( message.value !== ""){
-          var key;
-          // le client transmet le message au serveur.
-          socket.emit('chat',{
-            message: message.value,
-            handle: document.title,
-            key: socket.id
-          });
-        }
+  /**
+   * This function sets a timeout
+   * It also says the user is no more typing
+   */
+  function timeoutFunction() {
+    typing = false;
+    socket.emit("saisie", false);
+  }
 
-        //Et on vide le champs une fois le msg envoyé
-        message.value = "";
-      }
-      else {//Sinon(si on saisie un message basique),
-        // on envoie le nom du client au serveur pour le feedback.
-        socket.emit('saisie', {handle:document.title});
-      }
-
+  message.addEventListener('input', function(e) {
+     messageValue = message.value;
+        console.log(message.value);
+        socket.emit('saisie', {handle:document.title, typing: true, messageValue});
+        clearTimeout(timeout);
+        timeout = setTimeout(timeoutFunction, 1000);
   });
 
-
-
-
-
+  message.addEventListener("keydown", function(event) {
+    if (event.keyCode == 13) { sendMessage(); }
+  })
 
   /*  ------------------------------  LE FEEDBACK côté CLIENT pt2. : 'saisie'  ------------------------------
 
       Sur l'évènement 'saisie' , On affiche un texte dans la page HTML.
 
   */
-  socket.on('saisie', function(data){
-
-    feedback.innerHTML = '<strong>'+ data.handle +' écrit un message...</strong>';
-      setTimeout(function () {
-        feedback.innerHTML = '';
-      }, 3000);
-
+  socket.on('saisie', function(data) {
+    if(data.typing && data.messageValue.trim() !== "") {
+      feedback.innerHTML = '<strong>'+ data.handle +' écrit un message...</strong>';
+    } else {
+      feedback.innerHTML = "";
+    }
   });
-
-
-
-
 
 /*     --------------------------------- AFFICHER UN MESSAGE : 'chat'   --------------------------------------
 
